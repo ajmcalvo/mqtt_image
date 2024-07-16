@@ -1,0 +1,14 @@
+user chirpstack_gb
+topic readwrite eu868/gateway/+/event/+
+topic readwrite eu868/gateway/+/command/#
+topic readwrite eu868/gateway/+/device/+
+
+user chirpstack
+topic readwrite eu868/gateway/+/event/+
+topic readwrite eu868/gateway/+/command/+
+topic readwrite eu868/gateway/+/device/+
+
+topic write application/+/device/+/event/+
+topic write application/+/device/+/command/+
+topic read application/+/device/+/command/+
+

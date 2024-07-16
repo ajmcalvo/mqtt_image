@@ -1,0 +1,19 @@
+# docker-compose.yml
+# Define the services that will be used in the docker-compose environment for
+# mosquitto in order to use with ChirpStack.
+
+services:
+ 
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+    volumes: 
+      - ./configuration/mosquitto/config/:/mosquitto/config/
+      - ./configuration/mosquitto/config/init_mqtt.sh:/mosquitto/config/init_mqtt.sh
+
+    env_file:
+      - .env
+    command: /bin/sh -c "chmod +x /mosquitto/config/init_mqtt.sh && /mosquitto/config/init_mqtt.sh && mosquitto -c /mosquitto/config/mosquitto.conf"
+      
